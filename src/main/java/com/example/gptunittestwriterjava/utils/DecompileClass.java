@@ -18,7 +18,6 @@ public class DecompileClass {
     public static String decompileClass(String jarPath, String className) {
         try (JarFile jarFile = new JarFile(jarPath)) {
             String classPath = className.replace('.', '/') + ".class";
-            classPath = FileUtils.changeToSystemFileSeparator(classPath);
             JarEntry entry = jarFile.getJarEntry(classPath);
 
             if (entry == null) {
